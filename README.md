@@ -1,11 +1,20 @@
-﻿## Axi 的博客主题
+# GuitarYuu 的博客
 
-本人博客链接：[Axi 的博客](https://axi404.top/)
+基于 [Axi-Theme](https://github.com/axi404/Axi-Theme)（Astro）构建的个人博客。
 
-主要使用 [Astro](https://astro.build/) ，[参考](https://axi404.top/about#theme) 他人的 Blog 主题构建，并在此基础上大量自定义，以形成 Astro-Axi Theme。
+- 在线地址：<https://guitaryuu.github.io/>
+- 主题文档：<https://theme.axi404.top/collection/docs>
 
-更多请参考文档中内容 [Docs](https://theme.axi404.top/collection/docs)
+## 写文章
 
-### 更新提示
+在 `src/content/blogs/<目录名>/index.md` 新建 Markdown 文件（含 frontmatter，参考已有文章），push 到 main 后 GitHub Actions 自动构建发布。
 
-由于 Astro 的一些特性（例如构建产物与自动生成文件等），当你需要更新博客/主题时，建议使用差异对比工具来合并改动，比如 [WinMerge](https://winmerge.org/)。
+## 本地开发
+
+```bash
+corepack pnpm install
+corepack pnpm dev        # 本地预览
+DEPLOYMENT_PLATFORM=github corepack pnpm build:github   # 构建（产物在 dist/）
+```
+
+主题更新：与上游 [axi404/Axi-Theme](https://github.com/axi404/Axi-Theme) diff 合并（作者推荐 WinMerge）。
