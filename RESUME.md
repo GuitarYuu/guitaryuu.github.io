@@ -26,6 +26,7 @@
 - ⚠️ 文章页氛围色 = 头图主色 25% 顶栏渐变（主题特性 `heroImage.color`），非 bug
 
 **头像**：`src/assets/avatar.jpg`（用户自选插画，青鸟少女），友链方形图 `public/avatar/avatar.png` 由 sharp attention 裁切；**主题作者原插画保留在 `src/assets/avatar.png`**（上游原路径，不参与渲染，仅留存/合并兼容）。favicon 仍为 ∑ svg。
+- 版权签名：文章卡右下角手写签名已换「Yuu」（Copyright.astro 内嵌 Freestyle Script 字形路径，全站文章生效；作者原 sign.svg 保留未引用）
 
 ## 主题升级流程（替代 WinMerge 的 git 方式）
 
