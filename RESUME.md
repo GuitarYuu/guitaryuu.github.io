@@ -1,6 +1,6 @@
 # RESUME — GuitarYuu 个人博客（guitaryuu.github.io）
 
-> 最后更新：2026-09-20（青衿主题上线）。**当前状态：已上线，主题 v2「青衿」验收通过。**
+> 最后更新：2026-09-20（三皮肤 + 自选头像）。**当前状态：已上线，默认皮肤「青衿」。**
 
 ## 站点信息
 
@@ -9,18 +9,23 @@
 - 本地目录：`C:\Users\25448\.zcode\workspace\default\blog\`；推送脚本 `..\push-blog-api.mjs`
 - 技术栈：Astro 5 + Tailwind + MDX + Pagefind + KaTeX；构建产物 `dist/`
 
-## 「青衿 Qingjin」独创主题层（2026-09-20）
+## 「青衿 Qingjin」主题层 + 三皮肤（2026-09-20）
 
-「青青子衿」学子意象，为数理身份定制：
+字体与架构（三皮肤共用）：霞鹜文楷屏幕版（`lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css`），import 在 `src/layouts/BaseLayout.astro`（app.css 之后）。
 
-- **亮色「稿纸」**：暖米纸面 + 淡墨字 + 靛青强调 + 稿纸格纹；**暗色「板书」**：墨绿黑板 + 粉笔白 + 粉笔黄强调 + 粉笔格线
-- 核心文件：`src/styles/qingjin.css`（变量双写 specificity 覆盖，零冲突）
-- 字体：霞鹜文楷屏幕版 npm 自托管（`lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css`），97 个 woff2 子集按需加载；引入点在 `src/layouts/BaseLayout.astro`（app.css 之后）
-- ⚠️ 主题的 `customCss` 配置字段在当前版本**未接线**（virtual:starlight/user-css 无消费方），别用它
-- 独创头像：`src/assets/avatar.svg`（稿纸 + 靛青∑ + 朱印「青」），`public/avatar/avatar.png` 由 sharp 栅格化生成；主题作者的动漫原图已删除
-- favicon：`public/favicon/favicon.svg`（∑），BaseHead.astro 加了 svg link、移除了 Satoshi preload
-- 首页一言换成 hitokoto 中文诗词（大陆可达）；About/Education 占位文案已填（中南大学/数理方向，可在 `src/pages/index.astro` 改）
-- 文章页背景的氛围色 = 头图主色 25% 顶栏渐变（主题特性 `heroImage.color`），示例文章橄榄色是它的演示头图所致，非 bug
+**皮肤三选一**（改 BaseLayout.astro 的 import，注释其余两行）：
+
+| 皮肤 | 文件 | 亮色 | 暗色 |
+|---|---|---|---|
+| 青衿【默认】 | `src/styles/qingjin.css` | 稿纸：米纸+靛青+格纹 | 板书：墨绿+粉笔黄+格线 |
+| 青鸟 Aoi | `src/styles/liz.css` | 晴空：云白蓝+青鸟蓝+细雨纹 | 月夜：藏蓝+萤蓝 |
+| 终霞 Yagate | `src/styles/yagate.css` | 霞空：粉→白→蓝渐变+玫瑰 | 夜霞：紫夜渐变+晚霞粉（引用块/分隔线粉蓝渐变） |
+
+- 变量双写选择器（`:root:root`/`.dark.dark`）覆盖主题默认，上游合并零冲突
+- ⚠️ 主题的 `customCss` 字段未接线（virtual:starlight/user-css 无消费方），不能用
+- ⚠️ 文章页氛围色 = 头图主色 25% 顶栏渐变（主题特性 `heroImage.color`），非 bug
+
+**头像**：`src/assets/avatar.jpg`（用户自选插画，青鸟少女），友链方形图 `public/avatar/avatar.png` 由 sharp attention 裁切；**主题作者原插画保留在 `src/assets/avatar.png`**（上游原路径，不参与渲染，仅留存/合并兼容）。favicon 仍为 ∑ svg。
 
 ## 主题升级流程（替代 WinMerge 的 git 方式）
 
@@ -39,10 +44,12 @@ corepack pnpm install && DEPLOYMENT_PLATFORM=github corepack pnpm build:github
 `github.com:443` 直连可能被阻断（api.github.com 稳定可用），git push 失败时用 API 推：
 
 ```bash
-cd blog && git add -A && GH_TOKEN=<token> node ../push-blog-api.mjs
-# 脚本自动 diff origin/main 找出增/改/删文件，走 Git Data API 建提交
+cd blog && git add -A && GH_TOKEN=<token> node ../push-blog-api.mjs "提交说明"
+# 脚本自动 diff origin/main 找出增/改/删文件，走 Git Data API 建提交（execSync 已设 64MB maxBuffer，大图可推）
 # 推完：git fetch origin main && git reset --hard origin/main 同步本地
 ```
+
+⚠️ 推送命令若带管道（`| tail`）必须先 `set -o pipefail`：管道会吞掉脚本退出码，导致失败后误执行后续 `reset --hard` 抹掉工作区（2026-09-20 踩过，已靠 git 历史+上下文全量恢复）。
 
 git 直连恢复时：临时 `git config --global --unset-all url.https://gh-proxy.com/https://github.com/.insteadof` 后 push，推完恢复镜像配置（见记忆 env-china-network）。
 
