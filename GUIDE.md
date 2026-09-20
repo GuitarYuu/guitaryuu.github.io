@@ -1,6 +1,6 @@
 # 博客维护指南（GuitarYuu 专用）
 
-> 仓库：`GuitarYuu/guitaryuu.github.io` · 线上：https://guitaryuu.github.io/ · 本地：`workspace/default/blog/`
+> 仓库：`GuitarYuu/guitaryuu.github.io` · 线上：https://guitaryuu.github.io/ · 本地：`D:/github/blog/`
 > 主题：Axi-Theme（Astro 5）+ 青衿架构三皮肤。官方主题文档：https://theme.axi404.top/collection/docs
 
 ---
