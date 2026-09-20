@@ -1,0 +1,110 @@
+/* ============================================================
+   青鸟 Aoi — 皮肤之二（基于 Axi-Theme + 青衿架构）
+   『莉兹与青鸟』×『终将成为你』的水彩蓝调
+
+   亮色「晴空」：云白蓝底 + 雾蓝墨字 + 青鸟蓝强调 + 细雨格纹
+   暗色「月夜」：深夜藏蓝 + 月光白字 + 萤蓝强调 + 微光格纹
+
+   与 qingjin.css / yagate.css 三选一：在 src/layouts/BaseLayout.astro 切换 import。
+   变量选择器用双写 specificity 覆盖主题默认值，上游升级零冲突。
+   ============================================================ */
+
+/* ---------- 配色变量 ---------- */
+
+:root:root {
+  --background: 208 50% 98%; /* 晴空 */
+  --foreground: 214 22% 24%; /* 雾蓝墨 */
+  --card: 0 0% 100%;
+  --card-foreground: 214 22% 24%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 214 22% 24%;
+  --primary: 205 70% 42%; /* 青鸟蓝 */
+  --primary-foreground: 208 50% 98%;
+  --secondary: 209 35% 93%;
+  --secondary-foreground: 214 22% 28%;
+  --muted: 209 32% 94%;
+  --muted-foreground: 212 12% 42%;
+  --accent: 209 38% 92%;
+  --accent-foreground: 214 22% 26%;
+  --destructive: 0 55% 50%;
+  --destructive-foreground: 208 50% 98%;
+  --border: 210 28% 86%;
+  --input: 210 28% 89%;
+  --ring: 205 70% 42%;
+}
+
+.dark.dark {
+  --background: 224 28% 9%; /* 月夜 */
+  --foreground: 214 30% 90%; /* 月光白 */
+  --card: 224 26% 12%;
+  --card-foreground: 214 30% 90%;
+  --popover: 224 26% 12%;
+  --popover-foreground: 214 30% 90%;
+  --primary: 199 80% 66%; /* 萤蓝 */
+  --primary-foreground: 224 28% 10%;
+  --secondary: 223 22% 17%;
+  --secondary-foreground: 214 25% 85%;
+  --muted: 223 20% 16%;
+  --muted-foreground: 214 15% 66%;
+  --accent: 223 20% 18%;
+  --accent-foreground: 214 25% 87%;
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 214 30% 92%;
+  --border: 223 18% 23%;
+  --input: 223 18% 20%;
+  --ring: 199 80% 66%;
+}
+
+/* ---------- 细雨 / 微光格纹 ---------- */
+
+body {
+  background-image: linear-gradient(hsl(205 40% 60% / 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(205 40% 60% / 0.1) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image: linear-gradient(hsl(199 60% 80% / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(199 60% 80% / 0.045) 1px, transparent 1px);
+}
+
+/* ---------- 细节 ---------- */
+
+::selection {
+  background: hsl(205 70% 42% / 0.2);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* 正文链接：青鸟蓝底，悬停变实 */
+.prose a {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: hsl(var(--primary) / 0.35);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  text-decoration-color: hsl(var(--primary));
+}
+
+/* 引用块：信纸批注样式 */
+.prose blockquote {
+  border-left: 3px solid hsl(var(--primary) / 0.5);
+  background: hsl(var(--muted) / 0.55);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.25rem 1rem;
+  font-style: normal;
+}
+
+/* 分隔线：居中短划 */
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+}

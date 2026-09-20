@@ -1,0 +1,129 @@
+/* ============================================================
+   终霞 Yagate — 皮肤之三（基于 Axi-Theme + 青衿架构）
+   『终将成为你』的粉蓝白渐变暧昧色调
+
+   亮色「霞空」：粉→白→蓝 柔焦渐变背景 + 玫瑰主色
+   暗色「夜霞」：粉→紫夜→藏蓝 渐变 + 晚霞粉强调
+
+   与 qingjin.css / liz.css 三选一：在 src/layouts/BaseLayout.astro 切换 import。
+   变量选择器用双写 specificity 覆盖主题默认值，上游升级零冲突。
+   ============================================================ */
+
+/* ---------- 配色变量 ---------- */
+
+:root:root {
+  --background: 210 40% 97%; /* 霞空基色（实际展示为渐变） */
+  --foreground: 325 12% 26%; /* 灰紫墨 */
+  --card: 0 0% 100%;
+  --card-foreground: 325 12% 26%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 325 12% 26%;
+  --primary: 341 55% 60%; /* 暧昧玫瑰 */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 340 30% 94%;
+  --secondary-foreground: 325 14% 30%;
+  --muted: 338 24% 95%;
+  --muted-foreground: 322 8% 42%;
+  --accent: 338 28% 93%;
+  --accent-foreground: 325 14% 28%;
+  --destructive: 0 55% 50%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 335 18% 87%;
+  --input: 335 18% 90%;
+  --ring: 341 55% 60%;
+}
+
+.dark.dark {
+  --background: 265 22% 9%; /* 夜霞基色 */
+  --foreground: 320 22% 90%; /* 霞光白 */
+  --card: 268 18% 12%;
+  --card-foreground: 320 22% 90%;
+  --popover: 268 18% 12%;
+  --popover-foreground: 320 22% 90%;
+  --primary: 335 70% 72%; /* 晚霞粉 */
+  --primary-foreground: 268 22% 10%;
+  --secondary: 265 16% 17%;
+  --secondary-foreground: 320 18% 85%;
+  --muted: 265 15% 16%;
+  --muted-foreground: 318 10% 66%;
+  --accent: 265 15% 18%;
+  --accent-foreground: 320 18% 87%;
+  --destructive: 0 50% 50%;
+  --destructive-foreground: 320 22% 92%;
+  --border: 265 14% 23%;
+  --input: 265 14% 20%;
+  --ring: 335 70% 72%;
+}
+
+/* ---------- 粉蓝白渐变背景（暧昧所在） ---------- */
+
+body {
+  background-image: linear-gradient(
+    155deg,
+    hsl(341 55% 95%) 0%,
+    hsl(0 0% 100%) 42%,
+    hsl(206 60% 95%) 100%
+  );
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image: linear-gradient(
+    155deg,
+    hsl(330 30% 13%) 0%,
+    hsl(268 24% 9%) 48%,
+    hsl(215 35% 12%) 100%
+  );
+}
+
+/* ---------- 细节 ---------- */
+
+::selection {
+  background: hsl(341 55% 60% / 0.22);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* 正文链接：玫瑰底，悬停变实 */
+.prose a {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: hsl(var(--primary) / 0.4);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  text-decoration-color: hsl(var(--primary));
+}
+
+/* 引用块：粉→蓝 渐变侧线，暧昧二色 */
+.prose blockquote {
+  border-left: 3px solid transparent;
+  border-image: linear-gradient(
+      180deg,
+      hsl(341 55% 62%),
+      hsl(206 60% 55%)
+    )
+    1;
+  background: hsl(var(--muted) / 0.55);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.25rem 1rem;
+  font-style: normal;
+}
+
+/* 分隔线：粉→蓝 渐变短划 */
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(341 55% 62% / 0.55),
+    hsl(206 60% 55% / 0.55),
+    transparent
+  );
+}
