@@ -6,7 +6,7 @@
 
 - 地址：https://guitaryuu.github.io/ （大陆直连可达）
 - 仓库：GuitarYuu/guitaryuu.github.io（fork 自 axi404/Axi-Theme，Apache-2.0，主题文档 https://theme.axi404.top/collection/docs ）
-- 本地目录：`C:\Users\25448\.zcode\workspace\default\blog\`；推送脚本 `..\push-blog-api.mjs`
+本地目录：`D:\github\blog\`；推送脚本 `D:\github\push-blog-api.mjs`（在 blog 目录内以 `../push-blog-api.mjs` 调用）
 - 技术栈：Astro 5 + Tailwind + MDX + Pagefind + KaTeX；构建产物 `dist/`
 
 ## 「青衿 Qingjin」主题层 + 三皮肤（2026-09-20）
