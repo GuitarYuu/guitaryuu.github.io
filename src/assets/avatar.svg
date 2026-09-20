@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- 青衿头像：稿纸底 + 靛青 ∑ + 朱印「青」 -->
+  <defs>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#d8cfba" stroke-width="1.5" opacity="0.55"/>
+    </pattern>
+  </defs>
+  <rect width="512" height="512" rx="72" fill="#f7f2e7"/>
+  <rect width="512" height="512" rx="72" fill="url(#grid)"/>
+  <text x="248" y="316" font-family="Georgia, 'Times New Roman', serif" font-size="252" font-weight="700" fill="#2f559a" text-anchor="middle">∑</text>
+  <g transform="translate(382 366) rotate(6)">
+    <rect width="92" height="92" rx="14" fill="#b03a2e" opacity="0.92"/>
+    <text x="46" y="68" font-family="'Kaiti SC', KaiTi, STKaiti, serif" font-size="62" fill="#f7f2e7" text-anchor="middle">青</text>
+  </g>
+</svg>

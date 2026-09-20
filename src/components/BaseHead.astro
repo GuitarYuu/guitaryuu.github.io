@@ -20,20 +20,14 @@ const socialImageURL = new URL(ogImage ? ogImage : '/images/social-card.webp', A
 <title>{siteTitle}</title>
 
 {/* Icons / Favicon */}
+<link rel='icon' type='image/svg+xml' href='/favicon/favicon.svg' />
 <link rel='apple-touch-icon' sizes='180x180' href='/favicon/favicon.ico' />
 <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon.ico' />
 <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon.ico' />
 <link rel='manifest' href='/favicon/site.webmanifest' />
 
-{/* Font preloads */}
-<link rel='preload' href='/fonts/Satoshi-Variable.ttf' as='font' type='font/ttf' crossorigin />
-<link
-  rel='preload'
-  href='/fonts/Satoshi-VariableItalic.ttf'
-  as='font'
-  type='font/ttf'
-  crossorigin
-/>
+{/* Font preloads —— 青衿主题主字体为霞鹜文楷（npm 子集按需加载），无需 preload 本地 Satoshi */}
+
 
 {/* Canonical URL */}
 <link rel='canonical' href={canonicalURL} />

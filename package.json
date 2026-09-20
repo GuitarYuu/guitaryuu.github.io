@@ -41,6 +41,7 @@
     "date-fns": "^4.1.0",
     "hast-util-select": "^6.0.4",
     "katex": "^0.16.27",
+    "lxgw-wenkai-screen-webfont": "^1.7.0",
     "node-html-parser": "^7.0.2",
     "pagefind": "^1.4.0",
     "rehype-external-links": "^3.0.0",

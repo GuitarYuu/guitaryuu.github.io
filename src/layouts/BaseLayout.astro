@@ -7,6 +7,10 @@ import type { SiteMeta } from '@/types'
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseLayout /> component.
 import '@/assets/styles/app.css'
+// 「青衿」主题层：霞鹜文楷字体 + 稿纸/板书配色（须在 app.css 之后引入）
+// 注：主题的 site.config customCss 字段在当前版本未接线（virtual:starlight/user-css 无人消费），故在此直接 import
+import 'lxgw-wenkai-screen-webfont/lxgwwenkaiscreen.css'
+import '../styles/qingjin.css'
 
 interface Props {
   meta: SiteMeta

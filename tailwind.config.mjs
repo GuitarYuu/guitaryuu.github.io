@@ -141,7 +141,7 @@ const config = {
         sm: 'calc(var(--radius) - 4px)'
       },
       fontFamily: {
-        sans: ['Century Gothic', 'ComicShannsMono', 'Satoshi', ...fontFamily.sans]
+        sans: ['LXGW WenKai Screen', 'Century Gothic', 'ComicShannsMono', 'Satoshi', ...fontFamily.sans]
       },
       typography: typographyConfig
     }

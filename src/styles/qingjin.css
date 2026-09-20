@@ -1,0 +1,111 @@
+/* ============================================================
+   青衿 Qingjin — GuitarYuu 的独创主题层（基于 Axi-Theme）
+   「青青子衿，悠悠我心」—— 为数理学子定制的配色与质感
+
+   亮色「稿纸」：暖米纸面 + 淡墨字 + 靛青强调 + 稿纸格纹
+   暗色「板书」：墨绿黑板 + 粉笔白 + 粉笔黄强调 + 粉笔格纹
+
+   本文件通过 site.config.ts 的 customCss 注入，
+   变量选择器用双写 specificity 确保覆盖主题默认值，
+   不改动主题源样式，上游升级合并零冲突。
+   ============================================================ */
+
+/* ---------- 配色变量 ---------- */
+
+:root:root {
+  --background: 40 36% 96%; /* 稿纸 */
+  --foreground: 30 12% 16%; /* 墨 */
+  --card: 40 42% 98%;
+  --card-foreground: 30 12% 16%;
+  --popover: 40 42% 98%;
+  --popover-foreground: 30 12% 16%;
+  --primary: 222 48% 36%; /* 靛青 */
+  --primary-foreground: 40 36% 97%;
+  --secondary: 40 28% 91%;
+  --secondary-foreground: 30 12% 20%;
+  --muted: 40 30% 90%;
+  --muted-foreground: 30 8% 38%; /* 淡墨 */
+  --accent: 40 32% 89%;
+  --accent-foreground: 30 12% 18%;
+  --destructive: 0 62% 44%;
+  --destructive-foreground: 40 36% 97%;
+  --border: 38 24% 79%;
+  --input: 38 24% 83%;
+  --ring: 222 48% 36%;
+}
+
+.dark.dark {
+  --background: 168 16% 8%; /* 黑板 */
+  --foreground: 45 32% 89%; /* 粉笔 */
+  --card: 168 13% 11%;
+  --card-foreground: 45 32% 89%;
+  --popover: 168 13% 11%;
+  --popover-foreground: 45 32% 89%;
+  --primary: 43 62% 62%; /* 粉笔黄 */
+  --primary-foreground: 168 16% 10%;
+  --secondary: 168 10% 16%;
+  --secondary-foreground: 45 25% 85%;
+  --muted: 168 10% 15%;
+  --muted-foreground: 45 12% 66%; /* 粉笔灰 */
+  --accent: 168 10% 17%;
+  --accent-foreground: 45 25% 88%;
+  --destructive: 0 55% 45%;
+  --destructive-foreground: 45 32% 92%;
+  --border: 168 10% 22%;
+  --input: 168 10% 19%;
+  --ring: 43 62% 62%;
+}
+
+/* ---------- 稿纸 / 粉笔格纹 ---------- */
+
+body {
+  background-image: linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-attachment: fixed;
+}
+
+.dark body {
+  background-image: linear-gradient(hsl(45 25% 82% / 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(45 25% 82% / 0.045) 1px, transparent 1px);
+}
+
+/* ---------- 细节 ---------- */
+
+::selection {
+  background: hsl(var(--primary) / 0.24);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+/* 正文链接：靛青虚线底，悬停变实 */
+.prose a {
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: hsl(var(--primary) / 0.35);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 4px;
+}
+
+.prose a:hover {
+  text-decoration-color: hsl(var(--primary));
+}
+
+/* 引用块：稿纸批注样式 */
+.prose blockquote {
+  border-left: 3px solid hsl(var(--primary) / 0.55);
+  background: hsl(var(--muted) / 0.55);
+  border-radius: 0 0.5rem 0.5rem 0;
+  padding: 0.25rem 1rem;
+  font-style: normal;
+}
+
+/* 分隔线：居中短划 */
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, hsl(var(--border)), transparent);
+}

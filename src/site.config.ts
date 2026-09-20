@@ -11,7 +11,7 @@ export const theme: ThemeUserConfig = {
   description: 'GuitarYuu 的个人博客，记录学习与思考',
   description_en: "GuitarYuu's personal blog",
   /** The default favicon for your site which should be a path to an image in the `public/` directory. */
-  favicon: '/favicon/favicon.ico',
+  favicon: '/favicon/favicon.svg',
   /** Specify the default language for this site. */
   locale: {
     lang: 'zh-CN',
@@ -26,7 +26,7 @@ export const theme: ThemeUserConfig = {
   },
   /** Set a logo image to show in the homepage. */
   logo: {
-    src: 'src/assets/avatar.png',
+    src: 'src/assets/avatar.svg',
     alt: 'Avatar'
   },
 
@@ -37,6 +37,7 @@ export const theme: ThemeUserConfig = {
 
   // in test
   head: [],
+  // 注意：本主题当前版本 customCss 未接线（无消费方），实际样式走 BaseLayout.astro 直接 import
   customCss: [],
 
   /** Configure the header of your site. */
@@ -109,12 +110,10 @@ export const integ: IntegrationUserConfig = {
   pagefind: true,
   // Add a random quote to the footer (default on homepage footer)
   quote: {
-    // https://developer.hitokoto.cn/sentence/#%E8%AF%B7%E6%B1%82%E5%9C%B0%E5%9D%80
-    // server: 'https://v1.hitokoto.cn/?c=i',
-    // target: (data) => (data as { hitokoto: string }).hitokoto || 'Error'
-    // https://github.com/lukePeavey/quotable
-    server: 'https://api.quotable.io/quotes/random?maxLength=60',
-    target: `(data) => data[0].content || 'Error'`
+    // 一言（诗词/哲学），大陆可直连
+    // https://developer.hitokoto.cn/sentence/
+    server: 'https://v1.hitokoto.cn/?c=i&c=k',
+    target: `(data) => (data.hitokoto || 'Error') + (data.from ? ' —— ' + data.from : '')`
   },
   // Tailwindcss typography
   typography: {
